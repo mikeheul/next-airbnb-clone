@@ -22,7 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={nunito.className}>
         <ClientOnly>
-          <Modal actionLabel="Submit" title="Submit" isOpen />
+          {/* <Modal actionLabel="Submit" title="Submit" isOpen /> */}
           <Navbar />
         </ClientOnly>
         {children}
