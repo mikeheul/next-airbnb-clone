@@ -14,6 +14,7 @@ import useRegisterModal from '../hooks/useRegisterModal'; // Importing the custo
 import Modal from './Modal';
 import Heading from '../Heading';
 import Input from '../inputs/Input';
+import toast from 'react-hot-toast';
 
 // Functional component for RegisterModal
 const RegisterModal = () => {
@@ -41,7 +42,7 @@ const RegisterModal = () => {
                 registerModal.onClose(); // Closing the register modal using registerModal.onClose()
             })
             .catch((error) => { // Handling errors
-                console.log(error); // Logging the error to console
+                toast.error('Something went wrong')
             })
             .finally(() => { // Executing finally block, regardless of success or failure
                 setIsLoading(false); // Setting isLoading state to false
@@ -50,37 +51,41 @@ const RegisterModal = () => {
 
     const bodyContent = (
         <div className='flex flex-col gap-4'>
+            {/* Heading component */}
             <Heading 
-                title='Welcome to Airbnb'
-                subtitle='Create an account'
+                title='Welcome to Airbnb' // Title for the heading
+                subtitle='Create an account' // Subtitle for the heading
             />
+            {/* Input component for email field */}
             <Input 
-                id='email'
-                label='Email'
-                disabled={isLoading}
-                register={register}
-                errors={errors}
-                required
+                id='email' // ID for the email input field
+                label='Email' // Label for the email input field
+                disabled={isLoading} // Disabling input field when isLoading is true
+                register={register} // Passing register function from react-hook-form to register input field
+                errors={errors} // Passing errors object from react-hook-form for validation errors
+                required // Marking input field as required
             />
+            {/* Input component for name field */}
             <Input 
-                id='name'
-                label='Name'
-                disabled={isLoading}
-                register={register}
-                errors={errors}
-                required
+                id='name' // ID for the name input field
+                label='Name' // Label for the name input field
+                disabled={isLoading} // Disabling input field when isLoading is true
+                register={register} // Passing register function from react-hook-form to register input field
+                errors={errors} // Passing errors object from react-hook-form for validation errors
+                required // Marking input field as required
             />
+            {/* Input component for password field */}
             <Input 
-                id='password'
-                type='password'
-                label='Password'
-                disabled={isLoading}
-                register={register}
-                errors={errors}
-                required
+                id='password' // ID for the password input field
+                type='password' // Setting input type to 'password'
+                label='Password' // Label for the password input field
+                disabled={isLoading} // Disabling input field when isLoading is true
+                register={register} // Passing register function from react-hook-form to register input field
+                errors={errors} // Passing errors object from react-hook-form for validation errors
+                required // Marking input field as required
             />
         </div>
-    )
+    )    
 
     return ( 
         <Modal 
