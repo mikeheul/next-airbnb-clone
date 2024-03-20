@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "./components/Navbar/Navbar";
 import ClientOnly from "./components/ClientOnly";
 import Modal from "./components/modals/Modal";
+import RegisterModal from "./components/modals/RegisterModal";
 
 const inter = Inter({ subsets: ["latin"] });
 const nunito = Nunito({ subsets: ["latin"],})
@@ -23,6 +24,7 @@ export default function RootLayout({
       <body className={nunito.className}>
         <ClientOnly>
           {/* <Modal actionLabel="Submit" title="Submit" isOpen /> */}
+          <RegisterModal />
           <Navbar />
         </ClientOnly>
         {children}
