@@ -1,19 +1,22 @@
-"use client";
+"use client"; // Indicates that this file is meant for client-side execution.
 
-import Container from "../Container";
-import Logo from "./Logo";
-import Search from "./Search";
-import UserMenu from "./UserMenu";
+// Importing necessary components
+import Container from "../Container"; // Importing Container component
+import Logo from "./Logo"; // Importing Logo component
+import Search from "./Search"; // Importing Search component
+import UserMenu from "./UserMenu"; // Importing UserMenu component
 
+// Functional component for Navbar
 const Navbar = () => {
+    // Rendering JSX for Navbar
     return ( 
-        <nav className="fixed w-full bg-white z-10 shadow-sm">
-            <div className="py-4 border-b-[1px]">
-                <Container>
-                    <div className="flex flex-row items-center justify-between gap-3 md:gap-0">
-                        <Logo />
-                        <Search />
-                        <UserMenu />
+        <nav className="fixed w-full bg-white z-10 shadow-sm"> {/* Navigation bar with fixed position, full width, white background, and shadow */}
+            <div className="py-4 border-b-[1px]"> {/* Padding and bottom border */}
+                <Container> {/* Wrapping content in a Container component */}
+                    <div className="flex flex-row items-center justify-between gap-3 md:gap-0"> {/* Flex container with gap between items */}
+                        <Logo /> {/* Rendering Logo component */}
+                        <Search /> {/* Rendering Search component */}
+                        <UserMenu /> {/* Rendering UserMenu component */}
                     </div>
                 </Container>
             </div>
@@ -21,4 +24,5 @@ const Navbar = () => {
     );
 }
 
+// Exporting the Navbar component
 export default Navbar;
