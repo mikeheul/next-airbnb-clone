@@ -12,6 +12,8 @@ import { // Importing necessary components and functions from react-hook-form
 
 import useRegisterModal from '../hooks/useRegisterModal'; // Importing the custom hook useRegisterModal from '../hooks/useRegisterModal'
 import Modal from './Modal';
+import Heading from '../Heading';
+import Input from '../inputs/Input';
 
 // Functional component for RegisterModal
 const RegisterModal = () => {
@@ -46,6 +48,16 @@ const RegisterModal = () => {
             });
     }
 
+    const bodyContent = (
+        <div className='flex flex-col gap-4'>
+            <Heading 
+                title='Welcome to Airbnb'
+                subtitle='Create an account'
+            />
+            <Input />
+        </div>
+    )
+
     return ( 
         <Modal 
             disabled={isLoading} // Prop to disable the modal while isLoading is true
@@ -54,6 +66,7 @@ const RegisterModal = () => {
             actionLabel='Continue' // Prop for the label of the action button
             onClose={registerModal.onClose} // Prop for the function to close the modal
             onSubmit={handleSubmit(onSubmit)} // Prop for the function to handle form submission
+            body={bodyContent}
         />
     );
 }
