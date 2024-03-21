@@ -6,11 +6,13 @@ import Avatar from "../Avatar";
 import { useCallback, useState } from "react";
 import MenuItem from "./MenuItem";
 import useRegisterModal from "../hooks/useRegisterModal";
+import useLoginModal from "../hooks/useLoginModal";
 
 // Functional component for UserMenu
 const UserMenu = () => {
 
     const registerModal = useRegisterModal();
+    const loginModal = useLoginModal();
     // State to manage the open/close state of the menu
     const [isOpen, setIsOpen] = useState(false);
 
@@ -46,7 +48,7 @@ const UserMenu = () => {
                         {/* Menu items */}
                         <>
                             <MenuItem
-                                onClick={() => {}}
+                                onClick={loginModal.onOpen}
                                 label="Login"
                             />
                             <MenuItem
