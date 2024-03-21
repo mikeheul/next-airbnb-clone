@@ -1,14 +1,14 @@
 "use client"; // Indicates that this file is meant for client-side execution.
 
-import { User } from "@prisma/client";
 // Importing necessary components
 import Container from "../Container"; // Importing Container component
 import Logo from "./Logo"; // Importing Logo component
 import Search from "./Search"; // Importing Search component
 import UserMenu from "./UserMenu"; // Importing UserMenu component
+import { SafeUser } from "@/app/types";
 
 interface NavbarProps {
-    currentUser?: User | null;
+    currentUser?: SafeUser | null;
 }
 
 // Functional component for Navbar
