@@ -24,12 +24,13 @@ export default function RootLayout({
     <html lang="en">
       <body className={nunito.className}>
         <ClientOnly>
-          {/* <Modal actionLabel="Submit" title="Submit" isOpen /> */}
           <ToasterProvider />
           <RegisterModal />
           <Navbar />
         </ClientOnly>
-        {children}
+        <div className='pb-20 pt-20'>
+          {children}
+        </div>
       </body>
     </html>
   );
