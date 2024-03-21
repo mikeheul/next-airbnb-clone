@@ -6,6 +6,7 @@ import ClientOnly from "./components/ClientOnly";
 import RegisterModal from "./components/modals/RegisterModal";
 import LoginModal from "./components/modals/LoginModal";
 import ToasterProvider from "./providers/ToasterProvider";
+import getCurrentUser from "./actions/getCurrentUser";
 
 const inter = Inter({ subsets: ["latin"] });
 const nunito = Nunito({ subsets: ["latin"],})
@@ -15,11 +16,14 @@ export const metadata: Metadata = {
   description: "Airnbnb Clone App with Next.js, App Router, Tailwind, Prisma, MongoDB and NextAuth",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  const currentUser = await getCurrentUser(); 
+
   return (
     <html lang="en">
       <body className={nunito.className}>
@@ -27,7 +31,7 @@ export default function RootLayout({
           <ToasterProvider />
           <RegisterModal />
           <LoginModal />
-          <Navbar />
+          <Navbar currentUser={currentUser}/>
         </ClientOnly>
         <div className='pb-20 pt-20'>
           {children}

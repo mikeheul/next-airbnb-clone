@@ -1,13 +1,20 @@
 "use client"; // Indicates that this file is meant for client-side execution.
 
+import { User } from "@prisma/client";
 // Importing necessary components
 import Container from "../Container"; // Importing Container component
 import Logo from "./Logo"; // Importing Logo component
 import Search from "./Search"; // Importing Search component
 import UserMenu from "./UserMenu"; // Importing UserMenu component
 
+interface NavbarProps {
+    currentUser?: User | null;
+}
+
 // Functional component for Navbar
-const Navbar = () => {
+const Navbar: React.FC<NavbarProps> = ({
+    currentUser
+}) => {
     // Rendering JSX for Navbar
     return ( 
         <nav className="fixed w-full bg-white z-10 shadow-sm"> {/* Navigation bar with fixed position, full width, white background, and shadow */}
@@ -16,7 +23,7 @@ const Navbar = () => {
                     <div className="flex flex-row items-center justify-between gap-3 md:gap-0"> {/* Flex container with gap between items */}
                         <Logo /> {/* Rendering Logo component */}
                         <Search /> {/* Rendering Search component */}
-                        <UserMenu /> {/* Rendering UserMenu component */}
+                        <UserMenu currentUser={currentUser} /> {/* Rendering UserMenu component */}
                     </div>
                 </Container>
             </div>
