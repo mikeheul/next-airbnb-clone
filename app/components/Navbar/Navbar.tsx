@@ -2,6 +2,7 @@
 
 // Importing necessary components
 import Container from "../Container"; // Importing Container component
+import Categories from "./Categories";
 import Logo from "./Logo"; // Importing Logo component
 import Search from "./Search"; // Importing Search component
 import UserMenu from "./UserMenu"; // Importing UserMenu component
@@ -27,6 +28,7 @@ const Navbar: React.FC<NavbarProps> = ({
                     </div>
                 </Container>
             </div>
+            <Categories />
         </nav>
     );
 }
