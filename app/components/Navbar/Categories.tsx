@@ -8,7 +8,7 @@ import CategoryBox from "../CategoyBox";
 import { FaSkiing } from "react-icons/fa";
 import { BsSnow } from "react-icons/bs";
 import { IoDiamond } from "react-icons/io5";
-import { useSearchParams } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 
 export const categories = [
     {
@@ -92,6 +92,13 @@ const Categories = () => {
 
     const params = useSearchParams();
     const category = params?.get('category');
+    const pathname = usePathname();
+
+    const isMainPage = pathname === '/';
+
+    if(!isMainPage) {
+        return null;
+    }
 
     return ( 
         <Container>

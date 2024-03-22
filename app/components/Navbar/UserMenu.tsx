@@ -10,6 +10,7 @@ import MenuItem from "./MenuItem";
 
 import useRegisterModal from "../hooks/useRegisterModal";
 import useLoginModal from "../hooks/useLoginModal";
+import useRentModal from "../hooks/useRentModal";
 
 import { useRouter } from "next/navigation";
 import { SafeUser } from "@/app/types";
@@ -27,6 +28,8 @@ const UserMenu: React.FC<UserMenuProps> = ({
 
     const registerModal = useRegisterModal();
     const loginModal = useLoginModal();
+    const rentModal = useRentModal()
+
     // State to manage the open/close state of the menu
     const [isOpen, setIsOpen] = useState(false);
 
@@ -35,13 +38,23 @@ const UserMenu: React.FC<UserMenuProps> = ({
         setIsOpen((value) => !value);
     }, []);
 
+    const onRent = useCallback(() => {
+        if(!currentUser) {
+            return loginModal.onOpen();
+        }
+
+        // Open Rent Modal
+        rentModal.onOpen();
+
+    }, [currentUser, loginModal, rentModal])
+
     // Rendering JSX for UserMenu
     return (
         <div className="relative">
             <div className="flex flex-row items-center gap-3">
                 {/* Airbnb your home */}
                 <div
-                    onClick={() => {}}
+                    onClick={onRent}
                     className="hidden md:block text-sm font-semibold py-3 px-4 rounded-full hover:bg-neutral-100 transition cursor-pointer">
                     Airbnb your home
                 </div>
@@ -79,7 +92,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
                 />
                 <MenuItem 
                     label="Airbnb your home" 
-                    onClick={signOut}
+                    onClick={rentModal.onOpen}
                 />
                 <hr />
                 <MenuItem 
