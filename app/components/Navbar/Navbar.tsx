@@ -1,11 +1,11 @@
 "use client"; // Indicates that this file is meant for client-side execution.
 
 // Importing necessary components
-import Container from "../Container"; // Importing Container component
+import Container from "../Container"; 
 import Categories from "./Categories";
-import Logo from "./Logo"; // Importing Logo component
-import Search from "./Search"; // Importing Search component
-import UserMenu from "./UserMenu"; // Importing UserMenu component
+import Logo from "./Logo"; 
+import Search from "./Search"; 
+import UserMenu from "./UserMenu"; 
 import { SafeUser } from "@/app/types";
 
 interface NavbarProps {
@@ -18,10 +18,10 @@ const Navbar: React.FC<NavbarProps> = ({
 }) => {
     // Rendering JSX for Navbar
     return ( 
-        <nav className="fixed w-full bg-white z-10 shadow-sm"> {/* Navigation bar with fixed position, full width, white background, and shadow */}
-            <div className="py-4 border-b-[1px]"> {/* Padding and bottom border */}
+        <nav className="fixed w-full bg-white z-10 shadow-sm"> 
+            <div className="py-4 border-b-[1px]"> 
                 <Container> {/* Wrapping content in a Container component */}
-                    <div className="flex flex-row items-center justify-between gap-3 md:gap-0"> {/* Flex container with gap between items */}
+                    <div className="flex flex-row items-center justify-between gap-3 md:gap-0"> 
                         <Logo /> {/* Rendering Logo component */}
                         <Search /> {/* Rendering Search component */}
                         <UserMenu currentUser={currentUser} /> {/* Rendering UserMenu component */}
