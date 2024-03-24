@@ -12,6 +12,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 - query-string
 - world-countrie
 - react-select
+- @types/leaflet
+- react/leaflet
 
 ## Getting Started
 
