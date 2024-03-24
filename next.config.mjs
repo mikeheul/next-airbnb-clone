@@ -10,6 +10,10 @@ const nextConfig = {
                 protocol:'https',
                 hostname: 'lh3.googleusercontent.com'
             },
+            {
+                protocol:'https',
+                hostname: 'res.cloudinary.com'
+            },
             // "avatars.githubusercontent.com",
             // "lh3.googleusercontent.com"
         ]

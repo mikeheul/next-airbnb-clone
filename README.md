@@ -13,7 +13,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 - world-countrie
 - react-select
 - @types/leaflet
-- react/leaflet
+- react-leaflet
+- next-cloudinary
 
 ## Getting Started
 
