@@ -60,7 +60,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
                 >
                 <Image
                     fill
-                    className="object-cover h-full w-full group-hover:scale-110 transition"
+                    className="object-cover h-full w-full group-hover:scale-110 transition duration-700"
                     src={data.imageSrc}
                     alt="Listing"
                 />
