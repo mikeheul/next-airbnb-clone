@@ -15,6 +15,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 - @types/leaflet
 - react-leaflet
 - next-cloudinary
+- date-fns
 
 ## Getting Started
 
