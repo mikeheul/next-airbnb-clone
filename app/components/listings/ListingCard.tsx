@@ -10,8 +10,10 @@ import {
 } from "@/app/types";
 import HeartButton from "../HeartButton";
 import useCountries from "../hooks/useCountries";
-import { useCallback } from "react";
+import { useCallback, useMemo } from "react";
 import Button from "../Button";
+
+import { format } from "date-fns";
 
 interface ListingCardProps {
     data: SafeListing;
@@ -49,6 +51,25 @@ const ListingCard: React.FC<ListingCardProps> = ({
         onAction?.(actionId)
     }, [disabled, onAction, actionId]);
 
+    const price = useMemo(() => {
+        if (reservation) {
+            return reservation.totalPrice;
+        }
+    
+        return data.price;
+    }, [reservation, data.price]);
+    
+    const reservationDate = useMemo(() => {
+        if (!reservation) {
+            return null;
+        }
+    
+        const start = new Date(reservation.startDate);
+        const end = new Date(reservation.endDate);
+    
+        return `${format(start, 'PP')} - ${format(end, 'PP')}`;
+    }, [reservation]);
+
     return (
         <div 
             onClick={() => router.push(`/listings/${data.id}`)} 
@@ -66,8 +87,8 @@ const ListingCard: React.FC<ListingCardProps> = ({
                 />
             <div className="absolute top-3 right-3">
                 <HeartButton
-                  //listingId={data.id} 
-                  //currentUser={currentUser}
+                    listingId={data.id} 
+                    currentUser={currentUser}
                 />
             </div>
             </div>
@@ -75,12 +96,11 @@ const ListingCard: React.FC<ListingCardProps> = ({
                 {location?.region}, {location?.label}
             </div>
             <div className="font-light text-neutral-500">
-                { data.category }
-              {/* {reservationDate || data.category} */}
+                {reservationDate || data.category}
             </div>
             <div className="flex flex-row items-center gap-1">
             <div className="font-semibold">
-                {/* $ {price} */}
+                $ {price}
             </div>
             {!reservation && (
                 <div className="font-light">night</div>
