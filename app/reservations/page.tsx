@@ -4,7 +4,7 @@ import ClientOnly from "@/app/components/ClientOnly";
 
 import getCurrentUser from "@/app/actions/getCurrentUser";
 import getReservations from "@/app/actions/getReservations";
-import TripsClient from "../trips/TripsClient";
+import TripsClient from "./ReservationsClient";
 
 const ReservationsPage = async () => {
     const currentUser = await getCurrentUser();
