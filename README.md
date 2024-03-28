@@ -1,7 +1,5 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-05:38:33
-
 ## Dependencies
 - **prisma** : next-generation ORM that consists of these tools
 - **axios** : promise based HTTP client for the browser and node.js
