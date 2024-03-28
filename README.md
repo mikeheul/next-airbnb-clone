@@ -3,21 +3,22 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 05:38:33
 
 ## Dependencies
-- prisma
-- axios
-- bcrypt
-- next-auth
-- hook form
-- hot toast
-- react-icons
-- zustand
-- query-string
-- world-countrie
-- react-select
-- @types/leaflet
-- react-leaflet
-- next-cloudinary
-- date-fns
+- **prisma** : next-generation ORM that consists of these tools
+- **axios** : promise based HTTP client for the browser and node.js
+- **bcrypt** : library to hash passwords
+- **next-auth** : complete open source authentication solution for Next.js applications
+- **react-hook-form** : flexible and extensible forms with easy-to-use validation
+- **react-hot-toast** : smoking hot Notifications for React
+- **react-icons** : popular icons in your React projects easily with react-icons, which utilizes ES6 imports that allows you to include only the icons that your project is using
+- **zustand** : small, fast and scalable bearbones state-management solution using simplified flux principles
+- **query-string** : parse and stringify URL query strings
+- **world-countries** : contains a list of world countries, as defined by ISO Standard 3166-1
+- **react-select** : a flexible and beautiful Select Input control for ReactJS with multiselect, autocomplete, async and creatable support
+- **@types/leaflet**
+- **react-leaflet** : provides bindings between React and Leaflet
+- **next-cloudinary** : high-performance image delivery and uploading at scale in Next.js powered by Cloudinary
+- **date-fns** : provides the most comprehensive, yet simple and consistent toolset for manipulating JavaScript dates in a browser & Node.js
+- **react-date-range** : component for choosing dates and date ranges
 
 ## Getting Started
 
