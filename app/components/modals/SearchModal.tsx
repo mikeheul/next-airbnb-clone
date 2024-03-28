@@ -7,7 +7,6 @@ import { Range } from 'react-date-range';
 import { formatISO } from 'date-fns';
 import { useRouter, useSearchParams } from 'next/navigation';
 
-
 import Modal from "./Modal";
 import Calendar from "../inputs/Calendar";
 import Counter from "../inputs/Counter";
@@ -65,24 +64,24 @@ const onSubmit = useCallback(async () => {
     }
 
     const updatedQuery: any = {
-    ...currentQuery,
-    locationValue: location?.value,
-    guestCount,
-    roomCount,
-    bathroomCount
+        ...currentQuery,
+        locationValue: location?.value,
+        guestCount,
+        roomCount,
+        bathroomCount
     };
 
     if (dateRange.startDate) {
-    updatedQuery.startDate = formatISO(dateRange.startDate);
+        updatedQuery.startDate = formatISO(dateRange.startDate);
     }
 
     if (dateRange.endDate) {
-    updatedQuery.endDate = formatISO(dateRange.endDate);
+        updatedQuery.endDate = formatISO(dateRange.endDate);
     }
 
     const url = qs.stringifyUrl({
-    url: '/',
-    query: updatedQuery,
+        url: '/',
+        query: updatedQuery,
     }, { skipNull: true });
 
     setStep(STEPS.LOCATION);
