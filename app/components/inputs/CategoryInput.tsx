@@ -27,7 +27,7 @@ const CategoryInput: React.FC<CategoryInputProps> = ({
                 {label}
             </div>
         </div>
-     );
+    );
 }
- 
+
 export default CategoryInput;
