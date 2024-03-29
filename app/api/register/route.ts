@@ -11,11 +11,18 @@ export async function POST(
     email,
     name,
     password,
-   } = body;
+  } = body;
 
-   const hashedPassword = await bcrypt.hash(password, 12);
+  const passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+])[0-9a-zA-Z!@#$%^&*()_+]{8,}$/;
 
-   const user = await prisma.user.create({
+  // Check if password meets the requirements
+  if (!passwordPattern.test(password)) {
+    return NextResponse.error();
+  }
+
+  const hashedPassword = await bcrypt.hash(password, 12);
+
+  const user = await prisma.user.create({
     data: {
       email,
       name,

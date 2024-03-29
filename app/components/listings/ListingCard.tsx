@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import prisma from "@/app/libs/prismadb";
 
 import { 
     SafeListing, 
@@ -14,6 +15,7 @@ import { useCallback, useMemo } from "react";
 import Button from "../Button";
 
 import { format } from "date-fns";
+import { fetchUserById } from "@/app/api/user/[userId]/route";
 
 interface ListingCardProps {
     data: SafeListing;
@@ -69,15 +71,6 @@ const ListingCard: React.FC<ListingCardProps> = ({
     
         return `${format(start, 'PP')} - ${format(end, 'PP')}`;
     }, [reservation]);
-
-    // const guest = useMemo(() => {
-    //     if(!reservation) {
-    //         return null;
-    //     }
-
-    //     return reservation.userId;
-
-    // }, [reservation]);
 
     return (
         <div 
