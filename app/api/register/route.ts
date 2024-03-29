@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import bcrypt from "bcrypt";
+import toast from 'react-hot-toast';
 
 import prisma from "@/app/libs/prismadb";
 
@@ -11,12 +12,19 @@ export async function POST(
     email,
     name,
     password,
+    repeatPassword
   } = body;
+
+  if(password !== repeatPassword) { // Checking if password and repeated password match
+    toast.error('Passwords have to match!')
+    return NextResponse.error();
+  }
 
   const passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+])[0-9a-zA-Z!@#$%^&*()_+]{8,}$/;
 
   // Check if password meets the requirements
   if (!passwordPattern.test(password)) {
+    toast.error('Password have to meet requirements!')
     return NextResponse.error();
   }
 

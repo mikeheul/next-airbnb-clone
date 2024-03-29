@@ -37,7 +37,8 @@ const RegisterModal = () => {
         defaultValues: { // Setting default values for form fields
             name: '', // Default value for name field
             email: '', // Default value for email field
-            password: '' // Default value for password field
+            password: '', // Default value for password field
+            repeatPassword: '' // Default value for password field
         }
     });
 
@@ -90,6 +91,15 @@ const RegisterModal = () => {
                 id='password' // ID for the password input field
                 type='password' // Setting input type to 'password'
                 label='Password' // Label for the password input field
+                disabled={isLoading} // Disabling input field when isLoading is true
+                register={register} // Passing register function from react-hook-form to register input field
+                errors={errors} // Passing errors object from react-hook-form for validation errors
+                required // Marking input field as required
+            />
+            <Input 
+                id='repeatPassword' // ID for the password input field
+                type='password' // Setting input type to 'password'
+                label='Repeat Password' // Label for the password input field
                 disabled={isLoading} // Disabling input field when isLoading is true
                 register={register} // Passing register function from react-hook-form to register input field
                 errors={errors} // Passing errors object from react-hook-form for validation errors
